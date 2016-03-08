@@ -1,5 +1,5 @@
 {
-    "name": "bobdenotter/seo",
+    "name": "libastian/seo",
     "description": "An extension to easily manage SEO title, meta description and OG tags.",
     "type": "bolt-extension",
     "require": {
