@@ -2,6 +2,7 @@
     "name": "bobdenotter/seo",
     "description": "An extension to easily manage SEO title, meta description and OG tags.",
     "type": "bolt-extension",
+    "version": "F0.1.0",
     "require": {
         "bolt/bolt": ">=2.1.0,<4.0.0"
     },
