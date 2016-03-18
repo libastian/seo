@@ -170,7 +170,19 @@
 
                 this.update();
 
-                $('#seofields-title, #seofields-description').on('keyup input paste', function(){
+                console.log("2quepaqsa");
+                var ids = [
+                    'seofields-title',
+                    'seofields-description',
+                    'seofields-shortlink',
+                    'seofields-canonical',
+                    'seofields-robots',
+                    'seofields-keywords',
+                ];
+
+
+                $('#' + ids.join(',#')).on('change keyup input paste', function(){
+                    console.log("1quepaqsa");
                     seoExtension.update();
                 })
 
@@ -179,15 +191,17 @@
             update: function() {
 
                 if ($('#seofields-title').val() != "") {
-                  var title = $('#seofields-title').val() + this.titlepostfix;
+                    var title = $('#seofields-title').val() + this.titlepostfix;
                 } else {
-                  var title = $('#' + this.titlefield).val() + this.titlepostfix;
+                    var title = $('#' + this.titlefield).val() + this.titlepostfix;
                 }
 
+                var description = '';
                 if ($('#seofields-description').val() != "") {
-                  var description = $('#seofields-description').val();
-                } else {
-                  var description = $('#' + this.descriptionfield).val();
+                    description = $('#seofields-description').val();
+                }
+                else if (this.descriptionfield) {
+                    description = $('#' + this.descriptionfield).val();
                 }
 
                 var link = $('#show-slug').text();
@@ -205,12 +219,14 @@
                     'shortlink': $('#seofields-shortlink').val(),
                     'canonical': $('#seofields-canonical').val(),
                     'robots': $('#seofields-robots').val(),
-                    'keywords': $('#seofields-keywords').val() }
+                    'keywords': $('#seofields-keywords').val()
+                }
+
 
                 $('#{{key}}').val( JSON.stringify(value) );
 
+
                 window.clearTimeout(this.timer);
-                this.timer = window.setTimeout(function(){ seoExtension.update(); }, 0);
 
             },
 
